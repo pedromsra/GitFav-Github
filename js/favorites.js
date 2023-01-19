@@ -9,13 +9,7 @@ export class Favorites {
     load() {
         this.entries = JSON.parse(localStorage.getItem('@gitfav:')) || [] //pegar JSON strin e transforma em objetos JS
         console.log(this.entries[0])
-        if(this.entries[0] === undefined){
-            this.root.querySelector('.noFavAdded').classList.remove('hiden')
-            console.log('oi');
-        } else {
-            this.root.querySelector('.noFavAdded').classList.add('hiden')
-            console.log('oiasdasd');
-        }
+        this.nofav()
         
     } //para esse projeto estamos pegando da localStorage do navegador
 
@@ -51,6 +45,13 @@ export class Favorites {
 
         this.entries = filteredEntries
 
+        this.nofav()
+
+        this.update()
+        this.save()
+    }
+
+    nofav() {
         if(this.entries[0] === undefined){
             this.root.querySelector('.noFavAdded').classList.remove('hiden')
             console.log('oi');
@@ -58,9 +59,6 @@ export class Favorites {
             this.root.querySelector('.noFavAdded').classList.add('hiden')
             console.log('oiasdasd');
         }
-
-        this.update()
-        this.save()
     }
 }
 
@@ -82,19 +80,11 @@ export class FavoritesView extends Favorites {
                 const isOk = confirm('Tem certeza que deseja remover esse favorito?')
                 if(isOk) {
                     this.delete(user)
-                    console.log(this.entries);
                 }
             }
 
             this.tbody.append(row)
-            if(this.entries[0] === undefined){
-                this.root.querySelector('.noFavAdded').classList.remove('hiden')
-                console.log('oi');
-            } else {
-                this.root.querySelector('.noFavAdded').classList.add('hiden')
-                console.log('oiasdasd');
-            }
-            
+            this.nofav()
         })
 
 
