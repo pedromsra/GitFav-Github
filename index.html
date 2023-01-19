@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <meta charset="UTF-8">
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <title>GitFav</title>
+
 
     <link rel="stylesheet" href="style.css">
 
     <script src="js/main.js" type="module" defer></script>
 </head>
 <body>
-    <header>
-        <img src="images/Gitfav.svg" alt="(estrela) GitFav">
-        <form action="" class="search">
-            <label for="inputsearch" class="sr-only">Digite o Github username que quer favoritar</label>
-            <input type="text" name="" id="inputsearch" placeholder="Digite o Github username que quer favoritar">
-            <button>&star; Favoritar</button>
-        </form>
-    </header>
-    <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Usuário</th>
-                    <th>Repositories</th>
-                    <th>Followers</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="https://github.com/pedromsra.png" alt="">
-                        <p>Pedro de Araújo</p>
-                        <span>pedromsra</span>
-                    </td>
-                    <td>123</td>
-                    <td>12007</td>
-                    <td>Remover</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="https://github.com/joao.png" alt="">
-                        <p>Joaozinho</p>
-                        <span>joao</span>
-                    </td>
-                    <td>123</td>
-                    <td>12007</td>
-                    <td>Remover</td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+    <div id="app">
+        <header>
+            <img src="images/Gitfav.svg" alt="(estrela) GitFav">
+            <div class="search"> <!--para o fetch reconhecer o button, tem que ser numa div-->
+                <label for="inputsearch" class="sr-only">Digite o Github username que quer favoritar</label>
+                <input type="text" name="" id="inputsearch" placeholder="Digite o Github username que quer favoritar">
+                <button><span>&star;</span> Favoritar</button>
+            </div>
+        </header>
+        <main>
+            <div id="scroll" style="overflow: auto; max-height: 640px">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usuário</th>
+                            <th>Repositories</th>
+                            <th>Followers</th>
+                            <th>Ação</th>
+                        </tr>
+                        <tr class="noFavAdded hiden">
+                            <td class="noFav">
+                                <img src="images/Estrela.svg" alt="Estrela">
+                                <h2>Nenhum favorito ainda</h2>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
