@@ -6,7 +6,7 @@
 
 :root {
     font-size: 62.5%;
-    --hue: 194;
+    --hue: 120;
     --bg-color: hsl(240, 4%, 19%);
     --bg-color-search-input: hsl(var(--hue), 65%, 7%);
     --bg-color-search-button: hsl(var(--hue), 91%, 25%);
